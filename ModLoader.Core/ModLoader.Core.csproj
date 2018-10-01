@@ -7,8 +7,8 @@
     <ProjectGuid>{247AFFD3-6AF2-4BF0-83C0-CED19B457803}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ModLoaderLibrary</RootNamespace>
-    <AssemblyName>MLL</AssemblyName>
+    <RootNamespace>ModLoader.Core</RootNamespace>
+    <AssemblyName>ModLoader.Core</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -35,8 +35,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Constants.cs" />
+    <Compile Include="Logger.cs" />
     <Compile Include="Main.cs" />
-    <Compile Include="Utils.cs" />
+    <Compile Include="MLUtils.cs" />
+    <Compile Include="MLVersion.cs" />
     <Compile Include="Patches.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -52,12 +52,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ModLoaderLibrary\ModLoaderLibrary.csproj">
-      <Project>{247affd3-6af2-4bf0-83c0-ced19b457803}</Project>
-      <Name>ModLoaderLibrary</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="ACEOML.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -67,6 +61,12 @@
     <PackageReference Include="Mono.Cecil">
       <Version>0.10.0</Version>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ModLoader.Core\ModLoader.Core.csproj">
+      <Project>{247affd3-6af2-4bf0-83c0-ced19b457803}</Project>
+      <Name>ModLoader.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

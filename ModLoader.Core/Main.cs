@@ -7,7 +7,7 @@ using System.Reflection;
 using System.Security.Cryptography.X509Certificates;
 using Harmony;
 
-namespace ModLoaderLibrary
+namespace ModLoader.Core
 {
     public class ModLoader
     { 

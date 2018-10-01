@@ -6,11 +6,8 @@ using System.IO;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Threading;
-using Harmony;
-using UnityEngine;
-using UnityEngine.UI;
 
-namespace ModLoaderLibrary
+namespace ModLoader.Core
 {
 
     [HarmonyPatch(typeof(GameController))]
