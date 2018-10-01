@@ -46,8 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Logger.cs" />
-    <Compile Include="Patcher.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -58,15 +56,19 @@
     <None Include="app.config" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Mono.Cecil">
-      <Version>0.10.0</Version>
-    </PackageReference>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\ModLoader.Core\ModLoader.Core.csproj">
-      <Project>{247affd3-6af2-4bf0-83c0-ced19b457803}</Project>
+      <Project>{55747ac7-64ce-4275-89e6-cc970ad3cb28}</Project>
       <Name>ModLoader.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ModLoader.Patching\ModLoader.Patching.csproj">
+      <Project>{4881f812-71c5-4504-9d03-7bd78dbacb96}</Project>
+      <Name>ModLoader.Patching</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="NLog">
+      <Version>4.5.10</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
