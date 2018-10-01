@@ -9,10 +9,7 @@ using System.Threading;
 
 namespace ModLoader.Core
 {
-
-    [HarmonyPatch(typeof(GameController))]
-    [HarmonyPatch("Awake")]
-    class LoadGameSettingsPatch
+    internal class LoadGameSettingsPatch
     {
         /// <summary>
         /// When a mod is activated in the Airport CEO window, the LoadMods() function is called. Since ACEO
@@ -26,7 +23,6 @@ namespace ModLoader.Core
         /// initializations happen pretty late in the game init... this isn't good for any mods that
         /// want to alter systems that "awake" before mod load, ex. procurement. While I'd LIKE 
         /// </summary>
-        [HarmonyPostfix]
         public static void Postfix()
         {
             Logger.Log("Launching Game State...", Logger.LogType.Debug);
@@ -74,9 +70,7 @@ namespace ModLoader.Core
             }
         }
 
-        [HarmonyPatch(typeof(GameController))]
-        [HarmonyPatch("Start")]
-        class OnGameLoadedPatch
+        private class OnGameLoadedPatch
         {
             /// <summary>
             /// After the game has fully loaded, we call each mod's GameLoaded() function, if it has one.
@@ -85,7 +79,6 @@ namespace ModLoader.Core
             /// 
             /// FOR MODDERS: This function calls your GameLoaded() function.
             /// </summary>
-            [HarmonyPostfix]
             public static void Postfix(GameController __instance)
             {
                 __instance.StartCoroutine(GameLoaded());
@@ -112,13 +105,10 @@ namespace ModLoader.Core
             }
         }
 
-        [HarmonyPatch(typeof(ModManager))]
-        [HarmonyPatch("ActivateMod")]
-        [HarmonyPatch(new Type[] {typeof(string)})]
-        class ActivateModPatch
+        private class ActivateModPatch
         {
             [HarmonyPostfix]
-            static void Postfix(string modID)
+            private static void Postfix(string modID)
             {
                 Logger.Log($"Checking mod {modID} for enums...", Logger.LogType.Debug);
                 // First, match the mod ID to a mod name. To do that, we have to parse the Mod ID's of all the mods manually.
