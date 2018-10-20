@@ -1,11 +1,13 @@
 ﻿using System;
 using Mono.Cecil;
 
-namespace ModLoader.Patching
+namespace ModLoader.Core
 {
     public abstract class Patch
     {
-        public TypeDefinition Type { get; protected set; }
+        public abstract TypeDefinition Type { get; protected set; }
+
+        public virtual void Generate() { }
 
         public abstract void Merge(TypeDefinition type);
     }

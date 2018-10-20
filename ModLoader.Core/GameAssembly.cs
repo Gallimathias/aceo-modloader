@@ -5,34 +5,40 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace ModLoader.Patching
+namespace ModLoader.Core
 {
     public class GameAssembly
     {
+        public string FullName { get; }
+
+        private FileStream internalFileStream;
         private AssemblyDefinition assembly;
-        private readonly string fullName;
 
         public GameAssembly(string fullName)
         {
-            this.fullName = fullName;
+            FullName = fullName;
         }
 
         public void Load()
         {
-            assembly = AssemblyDefinition.ReadAssembly(fullName);
+            internalFileStream = File.Open(FullName, FileMode.OpenOrCreate, FileAccess.ReadWrite);
+            var resolver = new DefaultAssemblyResolver();
+            resolver.AddSearchDirectory(new FileInfo(FullName).Directory.FullName);
+
+            assembly = AssemblyDefinition.ReadAssembly(internalFileStream, new ReaderParameters()
+            {
+                AssemblyResolver = resolver
+            });
         }
 
         public void Copy(string targetFullName)
         {
-            File.Copy(fullName, targetFullName);
+            File.Copy(FullName, targetFullName);
         }
 
         public void Save()
         {
-            if (File.Exists(fullName))
-                File.Delete(fullName);
-
-            assembly.Write(fullName);
+            assembly.Write();
         }
 
         public void AddPatch(Patch patch)

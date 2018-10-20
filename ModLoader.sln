@@ -7,8 +7,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{566F
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusNamesMod", "Samples\BusNamesMod\BusNamesMod.csproj", "{6EA2F9D0-F6DD-41A2-8B02-40313A41A233}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModLoader.Patching", "ModLoader.Patching\ModLoader.Patching.csproj", "{4881F812-71C5-4504-9D03-7BD78DBACB96}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModLoader.Core", "ModLoader.Core\ModLoader.Core.csproj", "{55747AC7-64CE-4275-89E6-CC970AD3CB28}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModLoader", "ModLoader\ModLoader.csproj", "{3FE03903-4B6B-4CEF-839C-D5ADFE716D5B}"
@@ -27,10 +25,6 @@ Global
 		{6EA2F9D0-F6DD-41A2-8B02-40313A41A233}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6EA2F9D0-F6DD-41A2-8B02-40313A41A233}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6EA2F9D0-F6DD-41A2-8B02-40313A41A233}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4881F812-71C5-4504-9D03-7BD78DBACB96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4881F812-71C5-4504-9D03-7BD78DBACB96}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4881F812-71C5-4504-9D03-7BD78DBACB96}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4881F812-71C5-4504-9D03-7BD78DBACB96}.Release|Any CPU.Build.0 = Release|Any CPU
 		{55747AC7-64CE-4275-89E6-CC970AD3CB28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{55747AC7-64CE-4275-89E6-CC970AD3CB28}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{55747AC7-64CE-4275-89E6-CC970AD3CB28}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -5,8 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Mono.Cecil" Version="0.10.1" />
+    <PackageReference Include="NLog" Version="4.5.10" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\ModLoader.Core\ModLoader.Core.csproj" />
-    <ProjectReference Include="..\ModLoader.Patching\ModLoader.Patching.csproj" />
   </ItemGroup>
 
 </Project>
