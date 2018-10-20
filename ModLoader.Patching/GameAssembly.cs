@@ -37,10 +37,14 @@ namespace ModLoader.Patching
 
         public void AddPatch(Patch patch)
         {
-            if (!assembly.MainModule.Types.Any(p => p.FullName == patch.Type.FullName))
+            var type = assembly.MainModule.Types.FirstOrDefault(p => p.FullName == patch.Type.FullName);
+            if (type == null)
+            {
                 assembly.MainModule.Types.Add(patch.Type);
+                type = patch.Type;
+            }
 
-            //Todo: else merge....
+            patch.Merge(type);
         }
     }
 }

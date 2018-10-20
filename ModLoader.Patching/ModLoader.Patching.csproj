@@ -13,4 +13,8 @@
     <ProjectReference Include="..\ModLoader.Core\ModLoader.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="DefaultPatches\" />
+  </ItemGroup>
+
 </Project>
