@@ -1,4 +1,5 @@
-﻿using Mono.Cecil;
+﻿using ModLoader.Core.DefaultPatches;
+using Mono.Cecil;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -7,9 +8,10 @@ using System.Text;
 
 namespace ModLoader.Core
 {
-    public class GameAssembly : AssemblyBase
+    public class ModAssembly : AssemblyBase
     {
-        public GameAssembly(string fullName) : base(fullName)
+
+        public ModAssembly(string fullName) : base(fullName)
         {
         }
 
@@ -25,26 +27,15 @@ namespace ModLoader.Core
             });
         }
 
-        public void Copy(string targetFullName)
+        public List<OverridePatch> GetOverridePatches()
         {
-            File.Copy(FullName, targetFullName);
-        }
+            var patchedTypes = assembly
+                .MainModule
+                .GetTypes()
+                .Where(t => t.BaseType != null && t.BaseType.FullName == "Aceo.Sdk.Patching.Patch")
+                .ToList();
 
-        public void Save()
-        {
-            assembly.Write();
-        }
-
-        public void AddPatch(Patch patch)
-        {
-            var type = assembly.MainModule.Types.FirstOrDefault(p => p.FullName == patch.Type.FullName);
-            if (type == null)
-            {
-                assembly.MainModule.Types.Add(patch.Type);
-                type = patch.Type;
-            }
-
-            patch.Merge(type);
+            return null;
         }
     }
 }

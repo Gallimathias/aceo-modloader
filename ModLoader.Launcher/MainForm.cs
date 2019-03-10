@@ -24,6 +24,8 @@ namespace ModLoader.Launcher
         {
             loader.Load();
             loader.Patch();
+            loader.LoadMod(@"D:\Projekte\Visual 2017\aceo-modloader\Samples\BusNamesMod\bin\Debug\BusNamesMod.dll");
+            loader.Save();
         }
     }
 }
