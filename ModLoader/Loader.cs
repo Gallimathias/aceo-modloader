@@ -29,6 +29,13 @@ namespace ModLoader
 
         }
 
+        public void LoadMod(string fullName)
+        {
+            var assembly = new ModAssembly(fullName);
+            assembly.Load();
+            assembly.GetOverridePatches();
+        }
+
         public void Patch()
         {
             var file = new FileInfo(gameAssembly.FullName);
@@ -42,7 +49,11 @@ namespace ModLoader
             var modifiedPatch = new ModifiedPatch();
             modifiedPatch.Generate();
             gameAssembly.AddPatch(modifiedPatch);
+            
+        }
 
+        public void Save()
+        {
             gameAssembly.Save();
         }
     }
